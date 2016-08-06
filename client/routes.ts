@@ -7,7 +7,7 @@ import { ContactComponent } from './components/contact/contact.component';
 
 const routes: RouterConfig = [
     { path: '', component: <Type>HomeComponent },
-    { path: 'contact', component: <Type>ContactComponent }
+    // { path: 'contact', component: <Type>ContactComponent }
 ];
 
 export const APP_ROUTER_PROVIDERS = [

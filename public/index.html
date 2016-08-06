@@ -5,8 +5,12 @@
         <base href=".">
 
         <!--<link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">-->
-        <!--<link rel="stylesheet" type="text/css" href="assets/css/style.css">-->
 
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <!-- IE required polyfills, in this exact order -->
         <!-- Polyfill(s) for older browsers -->
         <script src="assets/js/vendor/shim.min.js"></script>
@@ -16,19 +20,17 @@
         <script src="assets/js/vendor/jquery.min.js"></script>
 
         <!-- 2. Configure SystemJS -->
-        <!--<script src="assets/js/systemjs.config.js"></script>-->
-        <!--<script>-->
-            <!--System.import('app').catch(function(err) { console.error(err); });-->
-<!--//        </script>-->
+        <script src="assets/js/systemjs.config.js"></script>
+        <script>
+            System.import('app').catch(function(err) { console.error(err); });
+        </script>
     </head>
 
     <body>
         <app>
-            <div class="ui active inverted dimmer">
-                <div class="ui small loader"></div>
-            </div>
+            Loading...
         </app>
         <!--  Production mod  -->
-        <script src="assets/js/bundle.min.js"></script>
+        <!--<script src="assets/js/bundle.min.js"></script>-->
     </body>
 </html>

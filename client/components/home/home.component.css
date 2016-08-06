@@ -1,0 +1,14 @@
+.md-card-card{
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.md-card-card:hover{
+    background-color: #EDEDED;
+    cursor: pointer;
+}
+
+.my-title{
+    text-align: center;
+}

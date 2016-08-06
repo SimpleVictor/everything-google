@@ -26,10 +26,13 @@ var isPublic = typeof window != "undefined";
     var ngPackageNames = [
         'common',
         'compiler',
-
         //Angular 2 material components
         'button',
         'card',
+        'menu',
+        'toolbar',
+        'tabs',
+        'grid-list',
 
         'core',
         'http',

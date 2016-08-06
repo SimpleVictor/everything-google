@@ -1,40 +1,78 @@
-<div class="ui container">
-	<sm-segment class="raised">
-		<h1>Angular 2 and Express authentication with JWT!</h1>
-		<sm-list class="ui list bulleted">
-			<sm-item class="item">username: {{user.username}}</sm-item>
-			<sm-item class="item">password: {{user.password}}</sm-item>
-		</sm-list>
-		<p>
-			Hardcoded data used for login and signup functionality.
-		</p>
-	</sm-segment>
-	<br/>
+<h1 class="text-center my-title">Please choose one of the following API's</h1>
 
-	<sm-button class="" (click)="call()">Call protected API</sm-button>
-	<sm-button class="positive" (click)="login()">Login</sm-button>
-	<sm-button class="basic red" (click)="remove()">Remove JWT from localStorage</sm-button>
+<!--<hr>-->
+<br><br>
+
+<md-grid-list cols="4">
 
 
-	<sm-button class="right floated" (click)="signup()">Signup</sm-button>
+	<!--GOOGLE MAPS-->
+	<md-grid-tile>
+		<md-card class="md-card-card" (click)="doThis()">
+			<md-card-header>
+				<img md-card-avatar src="assets/images/googlemaps-avatar.png">
+				<md-card-title>Google Maps</md-card-title>
+				<md-card-subtitle>Including Gps</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image src="assets/images/googlemaps.jpg">
+			<md-card-content>
+				<p>Pretty much the only API that people use in terms of maps...lol</p>
+			</md-card-content>
+		</md-card>
+	</md-grid-tile>
 
-	<div class="ui divider hidden"></div>
 
-	<!-- Signup response -->
-	<sm-segment style="word-wrap: break-word;" *ngIf="response" class="raised">
-		<sm-list class="ui list bulleted">
-			<sm-item class="item">hashed: {{response?.hashed}}</sm-item>
-			<sm-item class="item">salt: {{response?.salt}}</sm-item>
-		</sm-list>
-	</sm-segment>
 
-	<!-- API call response -->
-	<sm-segment *ngIf="error" class="inverted red">
-		<sm-item class="item">{{error?.message}}</sm-item>
-	</sm-segment>
+	<!--GMAIL-->
+	<md-grid-tile>
+		<md-card class="md-card-card">
+			<md-card-header>
+				<img md-card-avatar src="assets/images/gmail-avatar.png">
+				<md-card-title>Gmail</md-card-title>
+				<md-card-subtitle>Includes sending emails to others</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image src="assets/images/gmail.jpg">
+			<md-card-content>
+				<p>Best API to spam companies.</p>
+			</md-card-content>
+		</md-card>
+	</md-grid-tile>
 
-	<sm-segment *ngIf="data" class="inverted green">
-		<sm-item class="item">{{data?.title}}</sm-item>
-		<sm-item class="item">{{data?.text}}</sm-item>
-	</sm-segment>
-</div>
+
+
+	<!--GOOGLE DRIVE-->
+	<md-grid-tile>
+		<md-card class="md-card-card">
+			<md-card-header>
+				<img md-card-avatar src="assets/images/google-drive-avatar.jpg">
+				<md-card-title>Google Drive</md-card-title>
+				<md-card-subtitle>Uploading, downloading, searching files</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image src="assets/images/google-drive.jpg">
+			<md-card-content>
+				<p>Store your favorite porn =]</p>
+			</md-card-content>
+		</md-card>
+	</md-grid-tile>
+
+
+
+
+	<!--YOUTUBE-->
+	<md-grid-tile>
+		<md-card class="md-card-card">
+			<md-card-header>
+				<img md-card-avatar src="assets/images/youtube-avatar.png">
+				<md-card-title>Youtube</md-card-title>
+				<md-card-subtitle>Video sharing</md-card-subtitle>
+			</md-card-header>
+			<img md-card-image src="assets/images/youtube.jpg">
+			<md-card-content>
+				<p>Hello, my name is Boxxy</p>
+			</md-card-content>
+		</md-card>
+	</md-grid-tile>
+
+
+
+</md-grid-list>
