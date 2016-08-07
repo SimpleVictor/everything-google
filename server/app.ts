@@ -1,6 +1,8 @@
 /// <reference path="../typings/index.d.ts" />
 import * as express from "express";
 import { join } from "path";
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
 let passport = require('passport');
 let session = require('express-session');
 let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -41,6 +43,9 @@ passport.use(new GoogleStrategy(
 
 
 
+
+app.use(logger('dev'));
+app.use(cookieParser());
 // required for passport
 app.use(session({
     secret: 'keyboard cat',
