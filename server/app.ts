@@ -25,7 +25,7 @@ passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
 
-
+console.log("yay");
 passport.use(new GoogleStrategy(
 
     // Use the API access settings stored in ./config/auth.json. You must create
