@@ -8,24 +8,24 @@
 
 	<!--GOOGLE MAPS-->
 	<md-grid-tile>
-		<md-card class="md-card-card" (click)="doThis()">
-			<md-card-header>
-				<img md-card-avatar src="assets/images/googlemaps-avatar.png">
-				<md-card-title>Google Maps</md-card-title>
-				<md-card-subtitle>Including Gps</md-card-subtitle>
-			</md-card-header>
-			<img md-card-image src="assets/images/googlemaps.jpg">
-			<md-card-content>
-				<p>Pretty much the only API that people use in terms of maps...lol</p>
-			</md-card-content>
-		</md-card>
+			<md-card class="md-card-card" (click)="changeRoute('maps-api')">
+				<md-card-header>
+					<img md-card-avatar src="assets/images/googlemaps-avatar.png">
+					<md-card-title>Google Maps</md-card-title>
+					<md-card-subtitle>Including Gps</md-card-subtitle>
+				</md-card-header>
+				<img md-card-image src="assets/images/googlemaps.jpg">
+				<md-card-content>
+					<p>Pretty much the only API that people use in terms of maps...lol</p>
+				</md-card-content>
+			</md-card>
 	</md-grid-tile>
 
 
 
 	<!--GMAIL-->
 	<md-grid-tile>
-		<md-card class="md-card-card">
+		<md-card class="md-card-card" (click)="changeRoute('gmail-api')">
 			<md-card-header>
 				<img md-card-avatar src="assets/images/gmail-avatar.png">
 				<md-card-title>Gmail</md-card-title>
@@ -42,7 +42,7 @@
 
 	<!--GOOGLE DRIVE-->
 	<md-grid-tile>
-		<md-card class="md-card-card">
+		<md-card class="md-card-card" (click)="changeRoute('drive-api')">
 			<md-card-header>
 				<img md-card-avatar src="assets/images/google-drive-avatar.jpg">
 				<md-card-title>Google Drive</md-card-title>
@@ -60,7 +60,7 @@
 
 	<!--YOUTUBE-->
 	<md-grid-tile>
-		<md-card class="md-card-card">
+		<md-card class="md-card-card" (click)="changeRoute('youtube-api')">
 			<md-card-header>
 				<img md-card-avatar src="assets/images/youtube-avatar.png">
 				<md-card-title>Youtube</md-card-title>

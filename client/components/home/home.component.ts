@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
 import {MD_CARD_DIRECTIVES} from "@angular2-material/card/card";
 import {MD_BUTTON_DIRECTIVES} from "@angular2-material/button/button";
 import {MD_MENU_DIRECTIVES} from "@angular2-material/menu/menu";
@@ -14,12 +14,12 @@ import {MD_GRID_LIST_DIRECTIVES} from "@angular2-material/grid-list/grid-list";
 	templateUrl: `client/components/home/home.component.html`
 })
 export class HomeComponent {
-	constructor(){
+	constructor(private _router: Router, private _activateRoute: ActivatedRoute){
 
 	}
 
-	doThis(){
-		console.log("works");
+	changeRoute(myRoute){
+		this._router.navigate([myRoute]);
 	}
 
 }
