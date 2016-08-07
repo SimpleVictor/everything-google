@@ -1,14 +1,54 @@
 /// <reference path="../typings/index.d.ts" />
 import * as express from "express";
 import { join } from "path";
+let passport = require('passport');
+let session = require('express-session');
+let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+let configAuth = require('../config/auth');
 import * as favicon from "serve-favicon";
 import { json, urlencoded } from "body-parser";
 
-import { loginRouter } from "./routes/login";
-import { protectedRouter } from "./routes/protected";
-
 const app: express.Application = express();
+
 app.disable("x-powered-by");
+
+
+passport.serializeUser(function(user, done) {
+    // done(null, user.id);
+    done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+    // Users.findById(obj, done);
+    done(null, obj);
+});
+
+
+passport.use(new GoogleStrategy(
+
+    // Use the API access settings stored in ./config/auth.json. You must create
+    // an OAuth 2 client ID and secret at: https://console.developers.google.com
+    configAuth.google,
+
+    function(accessToken, refreshToken, profile, done) {
+        console.log("yeahh buddy");
+        // Typically you would query the database to find the user record
+        // associated with this Google profile, then pass that object to the `done`
+        // callback.
+        return done(null, profile);
+    }
+));
+
+
+
+// required for passport
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(favicon(join(__dirname, "../public", "favicon.ico")));
 app.use(express.static(join(__dirname, '../public')));
@@ -16,11 +56,47 @@ app.use(express.static(join(__dirname, '../public')));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
+// import { protectedRouter } from "./routes/protected";
+
 // api routes
-app.use("/api", protectedRouter);
-app.use("/login", loginRouter);
+// app.use("/", protectedRouter);
+
+
+app.get('/auth/google',
+    passport.authenticate('google', { scope: ['openid email profile'] }), function(req, res){
+        console.log("Went in here at least");
+    });
+
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/maps-api'
+    }),
+    function(req, res) {
+        console.log("Authenticated successfully");
+        // Authenticated successfully
+        res.redirect('/');
+    });
+
+app.get("/testMe", function(req, res){
+    console.log("You cam here");
+})
 
 app.use('/client', express.static(join(__dirname, '../client')));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // error handlers
 // development error handler

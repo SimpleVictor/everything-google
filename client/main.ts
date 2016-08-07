@@ -11,6 +11,7 @@ import { APP_ROUTER_PROVIDERS } from "./routes";
 
 bootstrap(<Type>AppComponent, [
 	APP_ROUTER_PROVIDERS,
+	// MATERIAL_BROWSER_PROVIDERS,
 	Overlay,
 	HTTP_PROVIDERS
 ]);

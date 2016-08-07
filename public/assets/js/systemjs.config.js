@@ -13,7 +13,8 @@ var isPublic = typeof window != "undefined";
         'angular2-in-memory-web-api': (isPublic)? 'angular2-in-memory-web-api' : 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       (isPublic)? 'rxjs' : 'node_modules/rxjs',
         'ng-semantic':                (isPublic)? 'ng-semantic' : 'node_modules/ng-semantic',
-        '@angular2-material':           (isPublic)? '@angular2-material': 'node_modules/@angular2-material'
+        '@angular2-material':           (isPublic)? '@angular2-material': 'node_modules/@angular2-material',
+        'ng2-material':                 (isPublic)? 'ng2-material': 'node_modules/ng2-material'
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
@@ -21,7 +22,8 @@ var isPublic = typeof window != "undefined";
         'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
         'ng-semantic':                { main: 'ng-semantic', defaultExtension: 'js' },
-        '@angular2-material':                { main: '@angular2-material', defaultExtension: 'js' }
+        '@angular2-material':                { main: '@angular2-material', defaultExtension: 'js' },
+        'ng2-material':               { main: 'ng2-material', defaultExtension: 'js'}
     };
     var ngPackageNames = [
         'common',
@@ -33,6 +35,7 @@ var isPublic = typeof window != "undefined";
         'toolbar',
         'tabs',
         'grid-list',
+        'checkbox',
 
         'core',
         'http',
