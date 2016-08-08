@@ -1,3 +1,15 @@
 <button [routerLink]="['']" md-raised-button color="accent">Go back</button>
 
 <h1>Google Drive</h1>
+
+<br/>
+
+<div *ngIf="myToken">
+    <h1>Login Success!</h1>
+    <h1>{{myFolderID}}</h1>
+    <iframe src="https://drive.google.com/embeddedfolderview?id=0B1LYKP0_HmH5d1V6T1VuUFE2WEk#grid" width="700" height="500" frameborder="0"></iframe>
+</div>
+
+<div *ngIf="!myToken">
+    <h1 style="color: red">Please login to google for gmail data to come in</h1>
+</div>

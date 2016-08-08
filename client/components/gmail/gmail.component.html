@@ -4,12 +4,12 @@
 
 <br>
 
-<button  md-raised-button class="sendButton">Send</button>
-<button  md-raised-button class="deleteButton">Delete</button>
 
 
 <div *ngIf="myToken">
 
+    <button  md-raised-button class="sendButton">Send</button>
+    <button  md-raised-button class="deleteButton">Delete</button>
 
     <md-list>
 
@@ -17,8 +17,8 @@
         <md-divider></md-divider>
         <md-list-item *ngFor="let email of myEmail">
             <!--<md-icon md-list-avatar>note</md-icon>-->
-            <h4 md-line>Note Id : {{email.id}}</h4>
-            <p md-line class="demo-2"> {{email.snippet}} </p>
+            <h4 md-line><b>Email Id : </b>{{email.id}}</h4>
+            <p md-line class="demo-2"><b>Email Message: </b>{{email.snippet}} </p>
             <md-divider md-line></md-divider>
         </md-list-item>
     </md-list>

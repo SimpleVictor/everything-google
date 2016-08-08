@@ -75,7 +75,7 @@ app.use(urlencoded({ extended: true }));
 
 
 app.get('/auth/google',
-    passport.authenticate('google', { scope: ['openid email profile https://www.googleapis.com/auth/gmail.readonly'] }), function(req, res){
+    passport.authenticate('google', { scope: ['openid email profile https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/drive.metadata.readonly'] }), function(req, res){
         console.log("Went in here at least");
     });
 

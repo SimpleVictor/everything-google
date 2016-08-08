@@ -7,6 +7,7 @@ import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {GoogleService} from "../../service/google.service";
 import {MD_LIST_DIRECTIVES} from "@angular2-material/list/list";
+import any = jasmine.any;
 
 @Component({
     directives: [ROUTER_DIRECTIVES , MD_BUTTON_DIRECTIVES, MD_LIST_DIRECTIVES],
@@ -23,12 +24,14 @@ export class GmailComponent implements OnInit {
 
 
     ngOnInit() {
-        this.myProfile = this._googleService.GlobalProfile.id;
-        this.myToken = this._googleService.GlobalToken;
-        let receivedEmailList = this._http.get('https://www.googleapis.com/gmail/v1/users/'+ this.myProfile+'/threads?access_token='+this.myToken+'&maxResults=6').map((response: Response) => response.json()).subscribe(data => {
-            this.myEmail = data.threads;
-            return console.log(data);
-        });
+        this.myProfile = this._googleService.GlobalProfile ? this._googleService.GlobalProfile : null;
+        this.myToken = this._googleService.GlobalToken ? this._googleService.GlobalToken : null;
+        if(this.myToken){
+            let receivedEmailList = this._http.get('https://www.googleapis.com/gmail/v1/users/'+ this.myProfile.id + '/threads?access_token='+this.myToken+'&maxResults=6').map((response: Response) => response.json()).subscribe(data => {
+                this.myEmail = data.threads;
+                return console.log(data);
+            });
+        }
 
     }
 
