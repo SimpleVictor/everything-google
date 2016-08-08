@@ -2,3 +2,14 @@ h1{
     text-align: center;
     letter-spacing: 4px;
 }
+
+.sendButton{
+    background-color: #ff4b1f;
+    color: white;
+}
+
+.deleteButton{
+    float: right;
+    background-color: #1fddff;
+    color: white;
+}

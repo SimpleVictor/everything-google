@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
 import {MD_CARD_DIRECTIVES} from "@angular2-material/card/card";
 import {MD_BUTTON_DIRECTIVES} from "@angular2-material/button/button";
@@ -13,13 +13,21 @@ import {MD_GRID_LIST_DIRECTIVES} from "@angular2-material/grid-list/grid-list";
 	selector: "home",
 	templateUrl: `client/components/home/home.component.html`
 })
-export class HomeComponent {
-	constructor(private _router: Router, private _activateRoute: ActivatedRoute){
+export class HomeComponent implements OnInit {
+	myToken;
+
+	constructor(private _router: Router){
+
+	}
+
+	ngOnInit(){
+
 
 	}
 
 	changeRoute(myRoute){
 		this._router.navigate([myRoute]);
 	}
+
 
 }

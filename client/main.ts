@@ -8,10 +8,12 @@ enableProdMode();
 
 import { AppComponent } from "./components/app.component";
 import { APP_ROUTER_PROVIDERS } from "./routes";
+import {GoogleService} from "./service/google.service";
 
 bootstrap(<Type>AppComponent, [
 	APP_ROUTER_PROVIDERS,
 	// MATERIAL_BROWSER_PROVIDERS,
+	GoogleService,
 	Overlay,
 	HTTP_PROVIDERS
 ]);

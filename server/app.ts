@@ -1,6 +1,7 @@
 /// <reference path="../typings/index.d.ts" />
 import * as express from "express";
 import { join } from "path";
+let google = require('googleapis');
 // let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let passport = require('passport');
@@ -11,6 +12,11 @@ import * as favicon from "serve-favicon";
 import { json, urlencoded } from "body-parser";
 
 const app: express.Application = express();
+
+let myToken;
+let myProfile;
+
+// console.log(google.gmail);
 
 app.disable("x-powered-by");
 
@@ -32,7 +38,9 @@ passport.use(new GoogleStrategy(
     configAuth.google,
 
     function(accessToken, refreshToken, profile, done) {
-        console.log("yeahh buddy");
+        myToken = accessToken;
+        myProfile = profile;
+        // console.log(profile);
         // Typically you would query the database to find the user record
         // associated with this Google profile, then pass that object to the `done`
         // callback.
@@ -67,7 +75,7 @@ app.use(urlencoded({ extended: true }));
 
 
 app.get('/auth/google',
-    passport.authenticate('google', { scope: ['openid email profile'] }), function(req, res){
+    passport.authenticate('google', { scope: ['openid email profile https://www.googleapis.com/auth/gmail.readonly'] }), function(req, res){
         console.log("Went in here at least");
     });
 
@@ -86,10 +94,28 @@ app.get("/testMe", function(req, res){
     console.log("You cam here");
 })
 
+
+app.get('/user/authenticate', ensureAuthenticated,function(req, res){
+
+    let myData = {
+        token: myToken,
+        profile: myProfile,
+        message: 'User is authenticated'
+    };
+
+    res.json(myData);
+});
+
 app.use('/client', express.static(join(__dirname, '../client')));
 
 
 
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.json("User is not authenticated");
+};
 
 
 

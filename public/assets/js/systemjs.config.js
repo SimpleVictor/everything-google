@@ -36,6 +36,7 @@ var isPublic = typeof window != "undefined";
         'tabs',
         'grid-list',
         'checkbox',
+        'list',
 
         'core',
         'http',

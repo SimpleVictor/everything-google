@@ -4,8 +4,8 @@
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
 
-
-    <span><b>Google's Api  </b></span>
+    <button *ngIf="!loggedIn" onclick="window.location.href='/auth/google'" md-raised-button color="primary">Login</button>
+    <span *ngIf="loggedIn"><b>Welcome {{username}}</b></span>
 </md-toolbar>
 
 
