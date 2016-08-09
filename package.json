@@ -1,7 +1,7 @@
 {
-  "name": "angular2-express-starter",
+  "name": "everything-google",
   "version": "1.0.0",
-  "description": "Starter application of Angular2 on Express",
+  "description": "Usage of some of google's known api",
   "main": "gulpfile.js",
   "private": true,
   "scripts": {
